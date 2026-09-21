@@ -22,31 +22,31 @@ https://github.com/codepath/pathreview-ai301-fa26-s1/issues/35
 ```
 Single candidate this time. I already gathered this repo's evidence a few minutes ago in this session; reusing it (GitHub fetches are cached for 15 minutes, so a re-fetch would return the same snapshot).
 
-Scope: codepath/pathreview-ai301-fa26-s1 — in the scoped source. Grading against rubric.md, measured against today, 2026-09-21.
+Scope: `codepath/pathreview-ai301-fa26-s1` — in the scoped source. Grading against `rubric.md`, measured against today, 2026-09-21.
 
-- maintainer-alive — pass. Human commit by Aburke225 on 2026-09-16 (5 days ago), and a COLLABORATOR reply on issue #52 the same day.
-- repo-in-use — pass. archived: false, pushed_at: 2026-09-16. No release has ever been published, but the recent-push condition carries it.
-- actionable-contribution — pass. Asks for new behavior: a webhook endpoint clients register a callback URL with, POSTed the review payload on completion.
-- bounded-scope — pass. One feature in two named new modules (api/routes/webhooks.py, core/services/webhook_service.py), interface specified in the body, no umbrella framing and no unsettled design. Worth flagging: at 8–12 hours it's the largest single build of the candidates you've shown me, but the rubric's fail conditions cover umbrella issues, maintainer-declared core-internals work, and unresolved design — not "one feature that is simply big" — so it passes as written.
-- issue-unclaimed — pass. No assignees, 0 comments, updated_at still equals created_at (2026-09-10), and the repo has zero pull requests of any state.
-- ai-contribution-allowed — pass. docs/CONTRIBUTIN_TEMPLATE.md state no AI-use restriction.
-- Preferred: maintainer-response pass (#52 got its first collaborator reply 6 days after opening), release-recency fail (no
-  releases), attempt-history pass (no PRs exist).
+- **maintainer-alive** — pass. Human commit by Aburke225 on 2026-09-16 (5 days ago), and a COLLABORATOR reply on issue #52 the same day.
+- **repo-in-use** — pass. `archived: false`, `pushed_at: 2026-09-16`. No release has ever been published, but the recent-push condition carries it.
+- **actionable-contribution** — pass. Asks for new behavior: a webhook endpoint clients register a callback URL with, POSTed the review payload on completion.
+- **bounded-scope** — pass. One feature in two named new modules (`api/routes/webhooks.py`, `core/services/webhook_service.py`), interface specified in the body, no umbrella framing and no unsettled design. Worth flagging: at 8–12 hours it's the largest single build of the candidates you've shown me, but the rubric's fail conditions cover umbrella issues, maintainer-declared core-internals work, and unresolved design — not "one feature that is simply big" — so it passes as written.
+- **issue-unclaimed** — pass. No assignees, 0 comments, `updated_at` still equals `created_at` (2026-09-10), and the repo has zero pull requests of any state.
+- **ai-contribution-allowed** — pass. `docs/CONTRIBUTING.md` and `.github/PULL_REQUEST_TEMPLATE.md` state no AI-use restriction.
+- Preferred: maintainer-response **pass** (#52 got its first collaborator reply 6 days after opening), release-recency **fail** (no releases), attempt-history **pass** (no PRs exist).
 
-Every required check passes → accept. Fit note, wh this is the one of your three candidates furthestfrom the "avoid unfamiliar infrastructure" line in your profile, since it's greenfield API plumbing rather than a bounded edit.
+Every required check passes → accept. Fit note, which doesn't move the verdict: this is the one of your three candidates furthest from the "avoid unfamiliar infrastructure" line in your profile, since it's greenfield API plumbing rather than a bounded edit.
 
+```json
 {
-  "item": "https://github.com/codepath/pathreview-
+  "item": "https://github.com/codepath/pathreview-ai301-fa26-s1/issues/35",
   "checks": [
-    {"name": "maintainer-alive", "grade": "pass", Aburke225 on 2026-09-16 (5 days ago); COLLABORATORreply on issue #52 on 2026-09-16."},
-    {"name": "repo-in-use", "grade": "pass", "evided_at 2026-09-16, within 180 days (no releases, butrecent-push condition satisfies)."},
-    {"name": "actionable-contribution", "grade": "new behavior: 'Add a webhook endpoint where clientscan register a callback URL' that receives a POST with the review payload."},
-    {"name": "bounded-scope", "grade": "pass", "evnew named modules with the interface specified; notan umbrella issue, no maintainer core-internals claim, design settled in the body."},
-    {"name": "issue-unclaimed", "grade": "pass", " 0 comments; updated_at equals created_at(2026-09-10); repo-wide PR list (state=all) is empty."},
-    {"name": "ai-contribution-allowed", "grade": "RIBUTING.md and .github/PULL_REQUEST_TEMPLATE.mdcontain no AI-use restriction."},
-    {"name": "maintainer-response", "grade": "passned 2026-09-10, first COLLABORATOR reply (Aburke225) 2026-09-16 — 6 days."},
-    {"name": "release-recency", "grade": "fail", "rns an empty array: no release has ever beenpublished."},
-    {"name": "attempt-history", "grade": "pass", "s exist in the repo, so no closed-unmergedattempts."}
+    {"name": "maintainer-alive", "grade": "pass", "evidence": "Human commit by Aburke225 on 2026-09-16 (5 days ago); COLLABORATOR reply on issue #52 on 2026-09-16."},
+    {"name": "repo-in-use", "grade": "pass", "evidence": "archived: false; pushed_at 2026-09-16, within 180 days (no releases, but recent-push condition satisfies)."},
+    {"name": "actionable-contribution", "grade": "pass", "evidence": "Requests new behavior: 'Add a webhook endpoint where clients can register a callback URL' that receives a POST with the review payload."},
+    {"name": "bounded-scope", "grade": "pass", "evidence": "One feature in two new named modules with the interface specified; not an umbrella issue, no maintainer core-internals claim, design settled in the body."},
+    {"name": "issue-unclaimed", "grade": "pass", "evidence": "assignees: empty; 0 comments; updated_at equals created_at (2026-09-10); repo-wide PR list (state=all) is empty."},
+    {"name": "ai-contribution-allowed", "grade": "pass", "evidence": "docs/CONTRIBUTING.md and .github/PULL_REQUEST_TEMPLATE.md contain no AI-use restriction."},
+    {"name": "maintainer-response", "grade": "pass", "evidence": "Issue #52 opened 2026-09-10, first COLLABORATOR reply (Aburke225) 2026-09-16 — 6 days."},
+    {"name": "release-recency", "grade": "fail", "evidence": "Releases API returns an empty array: no release has ever been published."},
+    {"name": "attempt-history", "grade": "pass", "evidence": "Zero pull requests exist in the repo, so no closed-unmerged attempts."}
   ],
   "verdict": "accept"
 }
