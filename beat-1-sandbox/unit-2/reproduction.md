@@ -23,9 +23,9 @@ rigshank
 
 **Claim comment**
 
-[Link to the comment where you claimed the issue. Use the comment's own permalink, not the
-issue page on its own. **Then paste the text of that comment underneath the link** — the
-pasted text is what this field is graded on, so copy across what you actually posted.]
+https://github.com/codepath/pathreview-ai301-fa26-s1/issues/35#issuecomment-5895478585
+
+Hi, I'd like to investigate issue #35 about adding webhook callbacks for completed reviews. I plan to trace the current review-processing flow, identify where review completion is detected, and determine how a client callback URL could be registered and invoked with the completed review payload. I'll follow up with an investigation report describing the current behavior and what I find.
 
 **Reproduction comment**
 
