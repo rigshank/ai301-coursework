@@ -194,7 +194,7 @@ I made that change because the important outcome is whether the plan verifies th
 
 **Trade-offs**
 
-The trade-off of the Test check is that it does not require an automated regression test. A plan can pass this check with a manual but faithful re-run of the reproduction steps, so the rubric may accept a plan that proves the fix but does not leave behind an automated regression test.
+The trade-off of the Test check is that it does not require an automated regression test. A plan can pass this check with a manual re-run of the reproduction steps, so the rubric may accept a plan that proves the fix but does not leave behind an automated regression test.
 
 I accepted that trade-off when we changed the test rubric to:
 
