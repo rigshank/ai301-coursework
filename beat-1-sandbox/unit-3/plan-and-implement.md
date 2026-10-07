@@ -161,28 +161,46 @@ fields.
 
 **Run history**
 
-[The agreement score of each run you did, in order. A single run is a complete answer if
-only one run occurred. **The last score in your list must match the agreement line in the
-`eval-run.txt` you committed** — that file is the record of your final run.]
+1. First full run: 19/20 agreement.
+2. Confirming full run saved to `eval-run.txt`: 19/20 agreement.
+
+No partial `--only` reruns were performed between the two full runs. The final saved run reported:
+
+> agreement: 19/20 scored items (bar: 18/20: PASS)
 
 **Package analysis**
 
-[Pick one scored package (`pkg-01` through `pkg-20` — the four `calib-` packages are never
-scored). Name it by id, say what your rubric decided and what the gold label said, and
-explain why your rubric read it that way.]
+I analyzed `pkg-20`. My rubric decided `accept`, while the gold label was `reject`.
+
+The package's diagnosis, scope, and test plan all satisfied the three required checks in my rubric. The diagnosis matched the reproduction evidence about the stale `prev` pointer after page growth. The scope was bounded to detecting the capacity change and recomputing `prev`, while explicitly excluding unconditional recomputation and a wider page-memory refactor. The test plan also reused the reproduced fuzz cases and the no-hyperlink control. Because all three required checks passed, my verdict rule produced `accept`.
+
+However, the repository facts in `pkg-20` state:
+
+> "All AI usage in any form must be disclosed, stating the tool used and the extent of the assistance"
+
+The candidate plan comment did not include that disclosure. My rubric has required checks only for Diagnosis, Scope, and Test, so it did not have a check that could reject a plan for violating a repository-specific AI-disclosure or thread convention. That is why my rubric accepted `pkg-20` even though the gold label rejected it.
 
 **Check rationale**
 
-[Quote one check from the `rubric.md` you uploaded to `tools/plan-check/`, exactly as it reads now.
-Then say why it reads that way — what you revised to get there, or what you rejected in
-favour of it.]
+The Test check in my uploaded `rubric.md` reads exactly:
+
+> | Test | The candidate plan's test plan, read against the steps in the repro evidence. | Pass if the test follows the same steps used to reproduce the bug. | required |
+
+I revised this check from the activity's original automated-test requirement. Our worksheet recorded the revision as:
+
+> "Changed the test rubric to check for steps instead of automated test."
+
+I made that change because the important outcome is whether the plan verifies the fix by following the reproduction steps that demonstrated the bug. Requiring an automated test would make the check depend on the testing format rather than whether the proposed test actually proves the reproduced behavior is fixed. This also matches the Unit 3 workflow, which asks for the Unit 2 reproduction steps to be re-run against the change.
 
 **Trade-offs**
 
-[Every check gives something up. Any one of these is a complete answer: a package whose
-result it changes, a canary you re-ran with `--only`, a case you accept it will miss, or a
-stated reason nothing changed elsewhere. "Nothing changed, and here is how I know" earns
-the point in full when the reason follows.]
+The trade-off of the Test check is that it does not require an automated regression test. A plan can pass this check with a manual but faithful re-run of the reproduction steps, so the rubric may accept a plan that proves the fix but does not leave behind an automated regression test.
+
+I accepted that trade-off when we changed the test rubric to:
+
+> "check for steps instead of automated test."
+
+The benefit is that the check focuses on observable proof tied to the reproduced bug instead of requiring one particular testing method. The cost is that it gives up enforcing test automation.
 
 ---
 
