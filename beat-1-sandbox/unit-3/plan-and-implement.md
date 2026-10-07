@@ -186,21 +186,17 @@ The Test check in my uploaded `rubric.md` reads exactly:
 
 > | Test | The candidate plan's test plan, read against the steps in the repro evidence. | Pass if the test follows the same steps used to reproduce the bug. | required |
 
-I revised this check from the activity's original automated-test requirement. Our worksheet recorded the revision as:
-
-> "Changed the test rubric to check for steps instead of automated test."
-
-I made that change because the important outcome is whether the plan verifies the fix by following the reproduction steps that demonstrated the bug. Requiring an automated test would make the check depend on the testing format rather than whether the proposed test actually proves the reproduced behavior is fixed. This also matches the Unit 3 workflow, which asks for the Unit 2 reproduction steps to be re-run against the change.
+I chose this wording because the test should directly connect back to the behavior that was reproduced. A plan should pass this check when its proposed test follows the reproduction steps that demonstrated the bug, rather than being judged only by the format of the test. This also matches the Unit 3 workflow, which asks for the Unit 2 reproduction steps to be re-run against the built change.
 
 **Trade-offs**
 
-The trade-off of the Test check is that it does not require an automated regression test. A plan can pass this check with a manual re-run of the reproduction steps, so the rubric may accept a plan that proves the fix but does not leave behind an automated regression test.
+The trade-off of the Test check is that it does not require an automated regression test. Because the pass condition is:
 
-I accepted that trade-off when we changed the test rubric to:
+> "Pass if the test follows the same steps used to reproduce the bug."
 
-> "check for steps instead of automated test."
+a plan can satisfy this check with a faithful manual re-run of the reproduction steps.
 
-The benefit is that the check focuses on observable proof tied to the reproduced bug instead of requiring one particular testing method. The cost is that it gives up enforcing test automation.
+The benefit is that the check focuses on observable evidence that the reproduced behavior is fixed instead of requiring one particular testing method. The cost is that the rubric does not enforce leaving behind an automated regression test.
 
 ---
 
