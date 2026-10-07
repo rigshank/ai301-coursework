@@ -118,9 +118,25 @@ curl -s "http://localhost:8000/reviews/$NO_CALLBACK_ID/status" \
     "progress_pct": 0
 }
 
-No second webhook was received by the listener for this review.
-
 Early-registration test:
+
+EARLY_RESPONSE=$(curl -s -X POST http://localhost:8000/reviews \
+  -H "Authorization: Bearer $TOKEN" \
+  -H "Content-Type: application/json" \
+  -d "{\"profile_id\":\"$PROFILE_ID\"}")
+
+echo "$EARLY_RESPONSE" | python -m json.tool
+
+EARLY_ID=$(echo "$EARLY_RESPONSE" \
+  | python -c "import sys,json; print(json.load(sys.stdin)['id'])")
+
+echo "Early-registration review ID: $EARLY_ID"
+
+curl -s -X POST "http://localhost:8000/reviews/$EARLY_ID/webhook" \
+  -H "Authorization: Bearer $TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"callback_url":"http://127.0.0.1:9000/early"}' \
+  | python -m json.tool
 
 Created review:
 a6228896-93c9-435c-9852-c7e0f3ced9a6
