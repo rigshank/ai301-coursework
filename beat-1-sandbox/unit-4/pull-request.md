@@ -31,16 +31,19 @@ fields.
 
 **Run history**
 
-1. **First completed full evaluation:** 18/20 agreement (PASS). The two disagreements were `pkg-05` and `pkg-08`: the gold labels were `accept`, but my tool returned `reject`.
-2. **Confirming full evaluation, saved to `eval-run.txt`:** 18/20 agreement (PASS). The two disagreements were `pkg-08` and `pkg-16`: the gold labels were `accept`, but my tool returned `reject`.
+1. **First completed full evaluation:** 18/20 agreement (PASS). The disagreements were `pkg-05` and `pkg-08`, both labeled `accept` by the gold labels but graded `reject` by my tool.
 
-The final saved run contains this exact agreement line:
+2. **Second completed full evaluation:** 18/20 agreement (PASS). The disagreements were `pkg-08` and `pkg-16`, both gold `accept` but graded `reject`. This run was previously saved to `eval-run.txt`.
 
-```text
-agreement: 18/20 scored items  (bar: 18/20: PASS)
-```
+3. **Third completed full evaluation (after the evidence-guide clarification):** 18/20 agreement (PASS). I updated the live evidence locations to explicitly reference `pr_draft.md` and `test_evidence.md`, then ran the complete 20-package evaluation again. The disagreements remained `pkg-08` and `pkg-16`. For `pkg-08`, the failing checks were Repository checks and Description accuracy. For `pkg-16`, only Repository checks failed. The final run was saved to `eval-run.txt`.
 
-Its category tallies were `clear-accept 5/7`, `not-tested 4/4`, `silent-drift 4/4`, `standards-wall 2/2`, and `unreviewable 3/3`; thus the full-run category floor was satisfied. I did not run a scored `--only` revision between the two full runs. Earlier startup attempts stopped on unfilled templates and then a Windows encoding error, before producing scored evaluations.
+The final saved run reported:
+
+`agreement: 18/20 scored items  (bar: 18/20: PASS)`
+
+Its category tallies were `clear-accept 5/7`, `not-tested 4/4`, `silent-drift 4/4`, `standards-wall 2/2`, and `unreviewable 3/3`. The category floor was satisfied.
+
+No scored `--only` runs were performed between these full evaluations. Earlier startup attempts encountered Windows Python invocation and encoding errors and did not produce completed scored evaluations.
 
 **Package analysis**
 
