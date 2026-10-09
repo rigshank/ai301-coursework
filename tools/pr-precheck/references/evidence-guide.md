@@ -15,7 +15,7 @@
 
 1. Read `plan.md` from the student's Path Review working copy, including `## Deviations`.
 2. Inspect the branch's changes against the repository's default branch. Use `git diff main...HEAD` when `main` is the default branch, or substitute the actual default branch.
-3. Read the draft PR title and description.
+3. Read `pr_draft.md` next to `plan.md` in the student's Path Review working copy. The first line gives the proposed PR title, and the text below gives the draft description. If the PR is already open, also inspect the current GitHub PR title and description.
 4. Review the original issue and relevant thread discussion in the scoped repository.
 5. For a house-chain submission, use the provided house plan and reproduction pack in place of the student's original plan and reproduction.
 
@@ -54,9 +54,9 @@ Do not treat a documented deviation as silent drift merely because the final imp
 **Live mode:**
 
 1. Read the test plan in `plan.md` and the reproduction evidence from Unit 2, or the supplied house reproduction pack.
-2. Inspect the student's recorded test commands and outputs, including before-and-after evidence.
+2. Read `test_evidence.md` next to `plan.md` in the student's Path Review working copy for recorded test commands and actual outputs, including before-and-after observations, repository validation results, failed checks, and execution blockers. Compare these records against the plan's test requirements and the original reproduction.
 3. Inspect the branch's relevant tests and implementation changes.
-4. Read the draft PR description for claimed results and testing limitations.
+4. Read `pr_draft.md` next to `plan.md` for claimed test results, verification status, and testing limitations; compare them with the actual outputs in `test_evidence.md`. If the PR is already open, also compare these claims with its current GitHub description.
 5. Identify repository validation commands from the repository's documented development and contribution instructions.
 
 ### What good looks like
@@ -142,7 +142,7 @@ Do not reject solely because of the number of commits, the number of changed fil
 2. Read applicable contribution instructions, including `CONTRIBUTING.md` when present.
 3. Read any stated repository policy concerning AI assistance or disclosure.
 4. Read relevant maintainer instructions in the issue thread.
-5. Compare those requirements with the student's draft PR title and description.
+5. Compare those requirements with the proposed PR title (first line) and description in `pr_draft.md` next to `plan.md` in the student's Path Review working copy. If the PR is already open, also inspect its current GitHub title and description for compliance.
 6. Read `voice-guide.md` to identify personal communication-rule violations. Report these separately unless a rubric check independently makes the requirement mandatory.
 
 ### What good looks like
