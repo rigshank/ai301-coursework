@@ -55,10 +55,9 @@ happened; these entries are the toolkit's own timeline.
 All four entries are graded. Keep every heading below, and fill each
 one in the week it belongs to.
 
-**Unit 5: [one line on the tool work]**
+**Unit 5: Built and refined my GitHub issue-scout**
 
-[2-4 sentences: what you built (the scout, your strategy), what broke
-or fell short, what changed because of it.]
+I upgraded my Unit 1 `issue-select` skill into `issue-scout`, preserved my existing rubric and fit profile, and created a search strategy targeting Python and JavaScript issues. My initial scan searched 200 issues, filtered the results to 151 candidates, and graded the top five, all of which passed the required checks. However, the scan favored recently opened issues and selected multiple issues from the same repository, so I improved the search strategy to limit the top five to one issue per repository and updated my rubric to remove the outdated Path Review claim exception. I documented these observations and changes in `scan-notes.md` and graded additional candidate issues, although I did not rerun the full scan after making the improvements.
 
 **Unit 6: [one line on the tool work]**
 
