@@ -328,6 +328,8 @@ The PR contains no production-code changes or new project dependencies. I disclo
 
 ## Learnings and Reflections
 
+Through this contribution, I improved my ability to understand an unfamiliar Python codebase and write automated tests using pytest. I learned how Murmury constructs AI prompts from different answer settings and how to test default values, edge cases, and fallback behavior. I also gained experience using uv to create an isolated testing environment, which allowed me to run all 26 focused tests despite platform-specific dependency problems on Windows. Additionally, I practiced using Git branches, GitHub pull requests, Claude Code, and custom tools such as issue-scout, plan-check, ship-gate, voice-guard, and PR monitor to manage an open-source contribution from issue selection through merge.
+
 **Technical Skills Gained**
 
 [What you learned technically, named concretely.]
