@@ -11,7 +11,7 @@ files and no evidence uploads are part of Assignment 5.
 **Student:** Krishang Reddy Mandala
 **GitHub Username:** rigshank
 **Issue:** https://github.com/GianlucaBave/murmury/issues/40
-**Pull Request:** [GitHub PR link, once opened]
+**Pull Request:** https://github.com/GianlucaBave/murmury/pull/41
 
 One repository, built across units 5 to 8, telling the whole story of your real
 contribution. Fill it as you work, not at the end — the sections below ask for evidence that
@@ -62,10 +62,9 @@ I upgraded my Unit 1 `issue-select` skill into `issue-scout`, preserved my exist
 
 I consolidated my previous voice guides, added upstream communication rules, and installed the voice-guard to check outgoing GitHub comments. The automatic Claude Code hook was registered but failed its wiring test, so I used the manual voice-guard checker, which successfully passed my claim draft. I also replaced the sandbox scopes for `repro-check` and `plan-check` with the real-repository scopes. Finally, I created `CLAUDE.local.md` for the Murmury repository using a scoped codebase investigation and excluded it from Git so it would not appear in my pull request.
 
-**Unit 7: [one line on the tool work]**
+**Unit 7: Installed ship-gate, validated my test implementation, and opened PR #41**
 
-[2-4 sentences: the ship-gate and your gate manifest. What it produced
-on your real branch, what fought you, what changed because of it.]
+I installed the ship-gate and configured ship-manifest.md to run the focused tests for Murmury issue #40. The focused test suite passed all 26 tests, while the official suite remained blocked by macOS-specific dependencies on Windows. The automatic hook test did not show the expected stops, so I verified the ship-gate directly and ran the manual branch check, which returned PASS with all seven checks passing. I then opened pull request #41 against the original repository and documented the testing limitations.
 
 **Unit 8: [one line on the tool work]**
 
@@ -280,6 +279,10 @@ I created the branch `test/40-instructions-settings` and added `tests/test_instr
 
 I ran the focused test suite, which passed all 26 tests in 40.85 seconds. The official test command failed during installation of a macOS-specific dependency. I documented this limitation and committed the implementation as `0948701`.
 
+**2026-11-09**
+
+I ran the ship-gate manually after preparing my pull request description. The gate successfully ran the focused tests and evaluated the branch with pr-precheck. All seven checks passed, and the final verdict was PASS. I pushed my implementation branch and opened PR #41 against GianlucaBave/murmury with the tested description.
+
 **Toolkit**
 
 - Tool: I used Git Bash, pytest, uv, and Git to implement, validate, and commit the changes.
@@ -291,27 +294,30 @@ I ran the focused test suite, which passed all 26 tests in 40.85 seconds. The of
 
 ## Pull Request
 
-**PR Link:** [GitHub PR URL when opened]
+**PR Link:** https://github.com/GianlucaBave/murmury/pull/41
 
-**PR Description:** [what the PR says; much of the content above
-adapts into it]
+**PR Description:**
+
+Added automated tests for Murmury's answer instruction settings to address issue #40.
+
+The PR introduces tests/test_instructions.py, covering default settings, word and number limits, line counts, source references, language, tone, format fallbacks, custom instructions, and unresolved template braces across presets and formats.
+
+All 26 focused tests passed using an isolated uv environment. The official repository test command was attempted but could not run because of macOS-specific dependencies on Windows.
+
+The PR contains no production-code changes or new project dependencies. I disclosed my AI assistance in the PR description.
 
 **Maintainer Feedback:**
 
-- [Date]: [feedback received, or "none yet"; silence is a normal
-  state and costs you nothing]
-- [Date]: [how you addressed it]
+- 2026-11-09: No maintainer feedback received yet.
 
-**Status:** [Awaiting review / Iterating / Merged / Closed. The
-status is a fact you record, never a grade: the PR is graded as
-opened.]
+**Status:** Awaiting review
 
 **Toolkit**
 
-- Tool:
-- What it produced:
-- Difficulties:
-- What changed:
+- Tool: I used the ship-gate, pr-precheck, Git, GitHub CLI, and Claude Code to validate and open the pull request.
+- What it produced: The ship-gate returned PASS, with all seven PR checks passing. Pull request #41 was successfully opened against the original Murmury repository.
+- Difficulties: The automatic hook did not demonstrate successful interception during the earlier help-command test. The official test suite was also blocked by macOS-specific dependencies on Windows.
+- What changed: I verified the ship-gate manually before opening the PR, documented the testing limitation, and ensured that the PR targeted the original repository rather than my fork.
 
 ---
 
