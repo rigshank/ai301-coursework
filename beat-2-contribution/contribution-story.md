@@ -66,10 +66,9 @@ I consolidated my previous voice guides, added upstream communication rules, and
 
 I installed the ship-gate and configured ship-manifest.md to run the focused tests for Murmury issue #40. The focused test suite passed all 26 tests, while the official suite remained blocked by macOS-specific dependencies on Windows. The automatic hook test did not show the expected stops, so I verified the ship-gate directly and ran the manual branch check, which returned PASS with all seven checks passing. I then opened pull request #41 against the original repository and documented the testing limitations.
 
-**Unit 8: [one line on the tool work]**
+**Unit 8: Installed the PR monitor, created a playbook, and followed up on my merged PR**
 
-[2-4 sentences: the PR-monitor and your playbook. What it read, what it
-drafted, what you did with the draft.]
+I installed the PR monitor and created a playbook with response rules, staleness thresholds, nudge etiquette, and walk-away criteria based on Murmury's contribution guidelines and five recently merged PRs. The monitor identified PR #41 as merged and drafted a thank-you message, but it incorrectly implied that a human review occurred and suggested closing an issue that was already closed. I corrected the draft, manually verified my revised message with voice-guard, and successfully posted it to PR #41. The automatic voice-guard hook reported a Python-not-found error, so I relied on the successful manual check and identified the hook's Python invocation as something to fix.
 
 ---
 
