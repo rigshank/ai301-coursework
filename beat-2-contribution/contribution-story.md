@@ -344,10 +344,11 @@ Next time, I would investigate a repository's development environment and platfo
 
 ## Resources Used
 
-[What actually helped, not a reading list. List things this story
-already shows you using: the doc you followed to set the environment
-up, the thread that explained the bug, the person who answered you.
-One real entry beats ten plausible ones.]
-
-- [Link to documentation that helped]
-- [Discussion, issue, or post that helped]
+- **Murmury Issue #40:** https://github.com/GianlucaBave/murmury/issues/40 — Used to understand the requested test coverage, identify acceptance criteria, and track the contribution.
+- **Murmury Repository:** https://github.com/GianlucaBave/murmury — Used to investigate the Python implementation, understand the answer instruction settings, and develop the automated tests.
+- **Murmury CONTRIBUTING.md:** https://github.com/GianlucaBave/murmury/blob/main/CONTRIBUTING.md — Used to understand contribution expectations, development requirements, and pull request conventions.
+- **Murmury Pull Request #41:** https://github.com/GianlucaBave/murmury/pull/41 — Used to track the implementation, testing evidence, merge status, and final communication.
+- **CodePath AI301 Course Materials:** Used the Unit 5–8 assignments and starter materials to develop and use issue-scout, voice-guard, ship-gate, and PR monitor.
+- **CodePath Unit 8 Starter Repository:** https://github.com/codepath/ai301-unit8-starter — Used to install the PR monitor, create the playbook, and follow the monitoring workflow.
+- **Claude Code:** Used to assist with codebase investigation, evaluate drafts using course tools, and support the contribution workflow.
+- **pytest and uv:** Used to execute the focused automated tests in an isolated Python environment and work around platform-specific dependency limitations.
