@@ -112,10 +112,10 @@ The instructions() function generates prompts, but tests/test_instructions.py do
 
 **Toolkit**
 
-- Tool:
-- What it produced:
-- Difficulties:
-- What changed:
+- Tool: I used GitHub repository inspection and repro-check to investigate Murmury issue #40, review the relevant source code, and validate my reproduction evidence.
+- What it produced: I identified the instructions() function in copilot/answer.py and confirmed that the dedicated tests/test_instructions.py file was missing. The reproduction check accepted my evidence.
+- Difficulties: The full test suite could not run on Windows because of macOS-specific dependencies. The isolated smoke test also could not verify every Style setting.
+- What changed: I narrowed the contribution to automated tests for prompt-generation settings and planned to use an isolated uv environment to avoid unrelated platform dependencies.
 
 ---
 
