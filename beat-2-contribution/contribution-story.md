@@ -328,20 +328,17 @@ The PR contains no production-code changes or new project dependencies. I disclo
 
 ## Learnings and Reflections
 
-Through this contribution, I improved my ability to understand an unfamiliar Python codebase and write automated tests using pytest. I learned how Murmury constructs AI prompts from different answer settings and how to test default values, edge cases, and fallback behavior. I also gained experience using uv to create an isolated testing environment, which allowed me to run all 26 focused tests despite platform-specific dependency problems on Windows. Additionally, I practiced using Git branches, GitHub pull requests, Claude Code, and custom tools such as issue-scout, plan-check, ship-gate, voice-guard, and PR monitor to manage an open-source contribution from issue selection through merge.
-
 **Technical Skills Gained**
 
-[What you learned technically, named concretely.]
+Through this contribution, I improved my ability to understand an unfamiliar Python codebase and write automated tests using pytest. I learned how Murmury constructs AI prompts from different answer settings and how to test default values, edge cases, and fallback behavior. I also gained experience using uv to create an isolated testing environment, which allowed me to run all 26 focused tests despite platform-specific dependency problems on Windows. Additionally, I practiced using Git branches, GitHub pull requests, Claude Code, and custom tools such as issue-scout, plan-check, ship-gate, voice-guard, and PR monitor to manage an open-source contribution from issue selection through merge.
 
 **Challenges Overcome**
 
-[What was hard and how you solved it; point at the real events, the
-Toolkit blocks above are full of them.]
+One of the biggest challenges was testing Murmury on Windows because the project includes dependencies designed for macOS. The official test command failed during dependency installation, so I used an isolated uv environment to run the relevant tests without modifying the project's dependencies. This allowed all 26 focused tests to pass, although I could not verify the complete test suite locally. Another challenge was that some of my Claude Code automation hooks did not work as expected. I worked around these problems by running the required checks manually and documenting the limitations rather than claiming that the automatic checks succeeded. The PR monitor also generated a thank-you draft containing inaccurate statements about maintainer review and issue closure, which I corrected before posting.
 
 **What I'd Do Differently Next Time**
 
-[Reflection on your process.]
+Next time, I would investigate a repository's development environment and platform-specific dependencies earlier, before creating my implementation plan. This would help me identify testing limitations sooner and choose an appropriate testing approach from the beginning. I would also verify that my Claude Code hooks are working correctly before relying on them, rather than discovering configuration problems during the contribution process. Finally, I would continue documenting commands, test results, and tool limitations throughout development so that preparing the pull request and final contribution story requires less reconstruction.
 
 ---
 
