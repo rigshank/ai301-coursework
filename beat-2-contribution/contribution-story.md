@@ -95,19 +95,20 @@ I chose this issue because it matches my experience with Python and my interest 
 
 **Problem Description**
 
-[In your own words, what is broken or missing?]
+Murmury's answer-generation prompts depend on configurable Style settings, but there are no dedicated automated tests verifying that these settings are included correctly. A regression could silently cause answers to ignore user preferences.
 
 **Expected Behavior**
 
-[What should happen?]
+The instructions() function should correctly incorporate all supported style settings into the generated prompt, including limits, sources, tone, language, format, and custom instructions. Invalid tone and format values should use their documented fallbacks.
 
 **Current Behavior**
 
-[What actually happens?]
+The instructions() function generates prompts, but tests/test_instructions.py does not exist. The default prompt smoke test succeeded, but the required settings and edge cases are not covered by dedicated tests.
 
 **Affected Components**
 
-[Which parts of the codebase are involved?]
+- copilot/answer.py: Style, PRESETS, TONES, FORMATS, ANSWER_INSTRUCTIONS, and instructions().
+- tests/test_instructions.py: New test file required by issue #40.
 
 **Toolkit**
 
@@ -193,22 +194,34 @@ I attempted to run the repository's required pytest command. However, dependency
 
 **Analysis**
 
-[Your analysis of the root cause: what is causing the issue, traced
-to the files and functions involved.]
+The issue is a gap in automated test coverage, not a confirmed production-code defect.
+
+The instructions(situation, style) function in copilot/answer.py constructs prompts using the Style dataclass, ANSWER_INSTRUCTIONS template, TONES and FORMATS dictionaries. It dynamically produces line slots, applies number and word limits, handles language and tone choices, removes source references when disabled, and inserts optional user instructions.
+
+The baseline reproduction confirmed that tests/test_instructions.py is missing. An isolated smoke test generated a prompt successfully, but did not validate the complete behavior requested by issue #40.
 
 **Proposed Solution**
 
-[High-level description of your fix approach, and what you are
-deliberately NOT changing.]
+Create tests/test_instructions.py containing pytest tests for every requirement in issue #40.
+
+Use parametrization for tones, presets, and formats. Test normal inputs, defaults, fallback behavior, and edge cases.
+
+Do not modify copilot/answer.py unless testing identifies a real production bug. Do not add dependencies, network calls, API requests, or changes to the user interface.
 
 **Implementation Plan**
 
-1. [Modify file X to do Y]
-2. [Add or change Z]
-3. [Update tests]
-
-[Record deviations here as they happen: what changed mid-build and
-why. A recorded deviation is honest work; silent drift is not.]
+1. Create tests/test_instructions.py.
+2. Test default SAY word limits and three source-tagged line slots.
+3. Test lines=1 and numbers=0 or numbers=2.
+4. Verify sources=False removes source-reference tags.
+5. Verify language selection and empty-language behavior.
+6. Test every supported tone and unknown-tone fallback.
+7. Test every supported format and unknown-format fallback.
+8. Test populated, blank, and whitespace-only extra instructions.
+9. Test every PRESETS and FORMATS combination for unresolved template braces.
+10. Run the focused pytest tests and record results.
+11. Attempt the repository's official test command and document any Windows dependency limitation.
+12. Review the diff and keep the contribution limited to the accepted scope.
 
 **Toolkit**
 
