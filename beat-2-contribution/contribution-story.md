@@ -78,24 +78,18 @@ drafted, what you did with the draft.]
 
 ## Why I Chose This Issue
 
-[1-2 paragraphs in your own words: how you searched, what your scan
-surfaced, what your scout's verdict said, why this issue fits your
-profile, and what you hope to learn. If your scout's verdict on it
-was reject and you chose it anyway, say so here and say why; choosing
-against your own tool silently is what loses points. Close with an
-honest read of the tool itself: where the scout fell short on a real
-wild search and what you changed or would change, or what convinced
-you it held up. **Record the link to your claim comment in this section too.**
-Not claimed yet? Write `claim pending` and today's date where the link goes,
-and add the link the moment your claim lands.]
+I found this issue while using my `issue-scout` tool to evaluate open-source contributions. My earlier candidates included issues from RimSort, OpenEnergyDashboard, and evalproof, but they were either too broad, already claimed, or completed. I then evaluated Murmury issue #40, which asks for Python tests to verify that different answer settings are correctly reflected in generated AI prompts. My scout returned an **accept** verdict because the repository is active, the issue is unclaimed, AI-assisted contributions are permitted, and the work has clear acceptance criteria. I classified the difficulty as straightforward because the issue identifies the test file and specific cases to cover.
+
+I chose this issue because it matches my experience with Python and my interest in AI/ML. I want to improve my understanding of automated testing, prompt construction, and contributing to an unfamiliar codebase. My scout helped filter unsuitable issues, but I noticed limitations in its rubric. In particular, it originally treated open design questions too strictly and did not check whether an issue had already been closed. I replaced the `bounded-scope` check with `scope-feasible` and added difficulty notes. In the future, I would also add a required check for whether an issue is still open and unresolved.
+
+**Claim comment:** https://github.com/GianlucaBave/murmury/issues/40#issuecomment-6755610573
 
 **Toolkit**
 
-- Tool: issue-scout (your scout: your search strategy, your rubric),
-  and how you used it
-- What it produced: [the scan and its verdict on this issue, described]
-- Difficulties: [where it fell short, or "none met" if none did]
-- What changed: [what you patched or would update, or "nothing"]
+- Tool: I used `issue-scout` to evaluate candidate issues using repository activity, contribution policies, issue availability, scope, and my technical interests.
+- What it produced: The scout accepted Murmury #40 after checking all required criteria. It identified the work as a bounded Python testing contribution.
+- Difficulties: Earlier evaluations accepted issues that were already completed, and the original scope check could reject otherwise reasonable contributions. The Murmury evaluation also did not automatically include the required difficulty note.
+- What changed: I replaced `bounded-scope` with `scope-feasible`, added difficulty classifications, and documented the change in `scan-notes.md`. I would also add an explicit open-issue check to prevent completed issues from receiving an accept verdict.
 
 ---
 
