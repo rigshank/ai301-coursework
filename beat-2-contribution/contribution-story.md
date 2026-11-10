@@ -122,31 +122,70 @@ I chose this issue because it matches my experience with Python and my interest 
 
 **Environment Setup**
 
-[What a stranger would need to stand this up: your operating system,
-the relevant versions (language, runtime, package manager, the project
-itself), and how you set the project up. Then the challenges you faced
-and how you solved them, or that none came up.]
+I used Windows with Git Bash, Python 3.13.3, and uv 0.12.22. I forked the Murmury repository to `rigshank/murmury` and cloned it locally on the `main` branch. The project requires macOS for its full application, but issue #40 states that the Python prompt tests should work on any operating system.
+
+I attempted to run the repository's required pytest command. However, dependency installation failed because `pyobjc-framework-vision` is a macOS-specific dependency. To work around this limitation, I used uv's `--no-project` option to run the relevant prompt-generation function with only the `anthropic` dependency.
 
 **Steps to Reproduce**
 
-1. [Step 1]
-2. [Step 2]
-3. [Observed result]
+1. Clone my fork and navigate to its root:
+
+   ```bash
+   git clone https://github.com/rigshank/murmury.git
+   cd murmury
+   ```
+
+2. Check whether the requested test file exists:
+
+   ```bash
+   test -f tests/test_instructions.py && echo "Test file exists" || echo "MISSING: tests/test_instructions.py"
+   ```
+
+3. Run the test command specified in issue #40:
+
+   ```bash
+   uv run --with pytest python -m pytest tests -q
+   ```
+
+4. Test the prompt-generation function independently:
+
+   ```bash
+   uv run --no-project --with anthropic python -c "from copilot.answer import Style, instructions; p = instructions('test meeting', Style()); print('Prompt generated:', len(p), 'characters'); print('Contains source tags:', '[source]' in p)"
+   ```
 
 **Reproduction Evidence**
 
-- **Commit showing reproduction:** [link to commit in your fork]
-- **Screenshots/logs:** [if applicable]
-- **My findings:** [what you discovered during reproduction; an
-  honest, evidenced cannot-reproduce that led you to re-pick or ask
-  the maintainer belongs here and costs you nothing]
+- **Commit showing reproduction:** none
+- **Screenshots/logs:**
+
+  The requested test file was missing:
+
+  ```text
+  MISSING: tests/test_instructions.py
+  ```
+
+  The full test command failed during dependency installation:
+
+  ```text
+  error: Failed to build `pyobjc-framework-vision==12.2.2`
+  TypeError: argument of type 'NoneType' is not iterable
+  ```
+
+  The isolated prompt-generation test succeeded:
+
+  ```text
+  Prompt generated: 5112 characters
+  Contains source tags: True
+  ```
+
+- **My findings:** I confirmed that the dedicated automated test file requested in issue #40 does not exist. The `instructions()` function successfully generated a prompt using the default `Style()` settings, and the output contained source tags. However, this smoke test does not verify all the settings described in the issue. The full pytest suite could not run on Windows because the project's development dependencies include macOS-specific packages. I did not identify or verify any production-code defect. The contribution will focus on adding the missing automated tests.
 
 **Toolkit**
 
-- Tool:
-- What it produced:
-- Difficulties:
-- What changed:
+- Tool: I used `repro-check` to evaluate my claim comment and reproduction report against the issue's requirements and my installed rubric.
+- What it produced: The tool checked the environment, reproduction steps, observed behavior, honesty of the findings, repository conventions, and claim accuracy. The final evaluation returned `accept` with all six checks passing.
+- Difficulties: The full test suite could not start on Windows because of macOS-specific dependencies. The first combined `repro-check` evaluation also incorrectly rejected my claim because it interpreted a promised progress update as a promised completion date.
+- What changed: I used an isolated uv environment to test prompt generation and documented the full-suite limitation. I then asked `repro-check` to apply the exact `claim-correct` rule, distinguishing a follow-up timeframe from a promised fix. The subsequent evaluation accepted the package without changing the draft or rubric.
 
 ---
 
