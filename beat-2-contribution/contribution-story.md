@@ -234,39 +234,58 @@ Do not modify copilot/answer.py unless testing identifies a real production bug.
 
 ## Testing Strategy
 
-[What observable checks prove the fix: your reproduction steps re-run
-against the built change (before and after), and the repo's own test
-suite or checks with the outcome shown. "Tests pass" with nothing
-observable named is not a strategy.]
+I tested the new `tests/test_instructions.py` file using an isolated uv environment to avoid the project's macOS-only dependencies.
+
+The automated tests verify default Style settings, SAY and line word limits, line counts, number limits, source tags, language selection, supported and unsupported tones, supported and unsupported formats, extra instructions, and unresolved template braces across presets and formats.
+
+**Before:** The dedicated test file did not exist. The initial smoke test only confirmed that a default prompt could be generated.
+
+**After:** The focused pytest command passed all 26 tests in 40.85 seconds.
+
+**Command:**
+`uv run --no-project --with pytest --with anthropic python -m pytest tests/test_instructions.py -q`
+
+**Output:**
+`26 passed in 40.85s`
+
+I also attempted the repository's official command:
+`uv run --with pytest python -m pytest tests -q`
+
+It failed with exit code 1 while building the macOS-specific `pyobjc-framework-coreml` dependency on Windows. This prevented the full suite from starting, so I cannot claim that it passed.
 
 **Toolkit**
 
-- Tool:
-- What it produced:
-- Difficulties:
-- What changed:
+- Tool: I used pytest and uv to validate the implementation and Git Bash to inspect the results.
+- What it produced: All 26 new tests passed. The official test command exposed a platform-specific dependency installation failure.
+- Difficulties: The full project test suite could not start on Windows because of macOS-specific dependencies.
+- What changed: I used an isolated uv environment to execute the relevant tests without modifying project dependencies. I recorded the official suite's failure separately.
 
 ---
 
 ## Implementation Notes
 
-[A running log, added to as you work. Date each entry. What you
-built, decisions you made when you made them, wrong turns included.]
+**2026-11-09**
 
-**[Date]**
+I investigated Murmury's `instructions()` function and confirmed that the requested automated test file was missing. I identified the Style settings and fallback behavior that needed coverage.
 
-[Entry]
+**2026-11-09**
 
-**[Date]**
+I prepared my implementation plan and used `plan-check` to evaluate it. All three required checks passed: Diagnosis, Scope, and Test. The final verdict was `accept`.
 
-[Entry]
+**2026-11-09**
+
+I created the branch `test/40-instructions-settings` and added `tests/test_instructions.py`. The new tests cover prompt-generation settings, defaults, edge cases, and fallbacks without changing production code.
+
+**2026-11-09**
+
+I ran the focused test suite, which passed all 26 tests in 40.85 seconds. The official test command failed during installation of a macOS-specific dependency. I documented this limitation and committed the implementation as `0948701`.
 
 **Toolkit**
 
-- Tool:
-- What it produced:
-- Difficulties:
-- What changed:
+- Tool: I used Git Bash, pytest, uv, and Git to implement, validate, and commit the changes.
+- What it produced: A new 115-line test file, 26 passing focused tests, and a commit containing only the planned test addition.
+- Difficulties: The official test suite was blocked by macOS-specific Python dependencies.
+- What changed: I used the isolated test environment, kept the implementation limited to the new test file, and documented the platform limitation for review.
 
 ---
 
