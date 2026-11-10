@@ -1,4 +1,4 @@
-# Contribution: [Issue Title]
+# Contribution: Tests for the answer instructions: every setting reaches the prompt
 
 Path: `beat-2-contribution/contribution-story.md`
 
