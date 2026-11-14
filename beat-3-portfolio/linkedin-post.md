@@ -1,11 +1,19 @@
-I contributed 26 automated tests to Murmury, an open-source AI project, and successfully got my first pull request merged. I also developed an AI-assisted tool called issue-scout to help identify and evaluate open-source contribution opportunities.
+From building AI tools in class to contributing to a real open-source project! 🚀
 
-My contribution focused on making sure Murmury correctly handles different user preferences when generating AI responses, including tone, language, formatting, word limits, and source references. I added a new Python test file, and all 26 tests passed successfully.
+Through CodePath's AI301 Open Source Capstone, I developed issue-scout, an AI-assisted tool for evaluating GitHub issues, and contributed 26 automated Python tests to Murmury, an open-source AI project.
 
-Before starting the contribution, I developed and improved issue-scout to evaluate GitHub issues based on project activity, difficulty, availability, and contribution guidelines. After identifying weaknesses in its initial recommendations, I refined its evaluation criteria and used it to assess Murmury's issue #40.
+One of my biggest takeaways? Finding the right problem to solve can be just as challenging as solving it.
 
-My pull request was officially merged on November 10, 2026, adding automated test coverage to the project.
+My first issue-scout scan evaluated 200 potential opportunities, but I quickly discovered weaknesses in how it ranked them. I refined the tool's search strategy and evaluation criteria, then used it to assess an issue in Murmury.
 
-This experience strengthened my Python testing skills, taught me how to navigate an unfamiliar codebase, and showed me the importance of validating AI-assisted recommendations through real evidence.
+From there, I explored an unfamiliar codebase and developed tests to verify that AI-generated prompts correctly reflected user preferences like tone, language, and formatting.
+
+After working through testing challenges, all 26 focused tests passed, and my pull request was merged on November 10! 🎉
+
+What made this experience valuable was everything I learned along the way. CodePath gave me the opportunity to apply AI tools to real software development while practicing problem-solving, testing, collaboration, and technical communication.
+
+I'm excited to keep building, learning, and contributing to open source!
+
+#CodePath #OpenSource #Python #ArtificialIntelligence
 
 https://github.com/GianlucaBave/murmury/pull/41
