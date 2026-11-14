@@ -1,19 +1,21 @@
-From building AI tools in class to contributing to a real open-source project! 🚀
+I turned what I learned in class into a real open-source contribution! 🚀
 
-Through CodePath's AI301 Open Source Capstone, I developed issue-scout, an AI-assisted tool for evaluating GitHub issues, and contributed 26 automated Python tests to Murmury, an open-source AI project.
+Through CodePath's AI301 Open Source Capstone, I built an AI-assisted tool called issue-scout to evaluate GitHub contribution opportunities and contributed 26 automated Python tests to Murmury, an open-source AI project.
 
-One of my biggest takeaways? Finding the right problem to solve can be just as challenging as solving it.
+One thing I quickly learned? Finding the right problem to solve can be just as challenging as solving it.
 
-My first issue-scout scan evaluated 200 potential opportunities, but I quickly discovered weaknesses in how it ranked them. I refined the tool's search strategy and evaluation criteria, then used it to assess an issue in Murmury.
+My first issue-scout scan found 200 potential opportunities, but the results weren't perfect. I discovered weaknesses in how the tool ranked issues, improved its search strategy and evaluation criteria, and later used it to assess a contribution opportunity in Murmury.
 
-From there, I explored an unfamiliar codebase and developed tests to verify that AI-generated prompts correctly reflected user preferences like tone, language, and formatting.
+From there, I explored an unfamiliar codebase, tackled testing environment challenges, and developed tests to verify that different user preferences were correctly reflected in AI prompts.
 
-After working through testing challenges, all 26 focused tests passed, and my pull request was merged on November 10! 🎉
+The result? All 26 focused tests passed, and my pull request was merged on November 10! 🎉
 
-What made this experience valuable was everything I learned along the way. CodePath gave me the opportunity to apply AI tools to real software development while practicing problem-solving, testing, collaboration, and technical communication.
+But my biggest takeaway goes beyond the code.
 
-I'm excited to keep building, learning, and contributing to open source!
+CodePath taught me how to approach real engineering problems, critically evaluate AI-generated recommendations, and turn an idea into a contribution that others can build on.
 
-#CodePath #OpenSource #Python #ArtificialIntelligence
+I'm excited to keep learning, building, and contributing to open source!
+
+#CodePath #OpenSource #Python #AI
 
 https://github.com/GianlucaBave/murmury/pull/41
